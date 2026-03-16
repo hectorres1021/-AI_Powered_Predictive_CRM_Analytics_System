@@ -2,7 +2,7 @@
 
 A comprehensive, production-ready Node.js backend for managing apprenticeship programs with real authentication, database persistence, and modern DevOps practices.
 
-**Status**: ✅ Phase 1-6 Complete | Production Ready
+**Status**: ✅ Phase 1-6 Complete | 🚀 Phase 7A In Progress (Frontend Setup)
 
 ![Test](https://img.shields.io/badge/tests-passing-brightgreen)
 ![Coverage](https://img.shields.io/badge/coverage-65%2B-brightgreen)
@@ -15,23 +15,31 @@ A comprehensive, production-ready Node.js backend for managing apprenticeship pr
 - Docker & Docker Compose (recommended)
 - Or: Node.js 18+, PostgreSQL 15+
 
-### 5-Minute Setup
+### 5-Minute Setup (Backend + Frontend)
 
 ```bash
 # Clone and navigate
 git clone <repo-url>
 cd AI_Powered_Predictive_CRM_Analytics_System/ilead-ams
 
-# Initialize with Docker
+# Initialize backend with Docker
 ./docker-init.sh development
 
 # View status
 docker-compose ps
 
-# API is running at http://localhost:3000
+# Backend API running at http://localhost:3000
+# API docs at http://localhost:3000/docs
+
+# In another terminal, start frontend
+cd frontend
+npm install
+npm run dev
+
+# Frontend running at http://localhost:3001
 ```
 
-**That's it!** The system is ready to use.
+**That's it!** Both backend and frontend are ready to use.
 
 ### View Interactive API Docs
 
@@ -117,6 +125,33 @@ ilead-ams/
 │   ├── Dockerfile              # Multi-stage build
 │   ├── openapi.yml             # API specification
 │   └── package.json            # Dependencies
+│
+├── frontend/                   # React 18 / Vite frontend (Phase 7)
+│   ├── src/
+│   │   ├── api/                # API service layer
+│   │   │   ├── client.js       # Axios instance
+│   │   │   ├── auth.js         # Auth endpoints
+│   │   │   ├── apprentices.js  # Apprentice endpoints
+│   │   │   ├── hourLogs.js     # Hour log endpoints
+│   │   │   ├── users.js        # User endpoints
+│   │   │   ├── programs.js     # Program endpoints
+│   │   │   ├── analytics.js    # Analytics endpoints
+│   │   │   └── documents.js    # Document endpoints
+│   │   ├── context/            # React Context
+│   │   │   └── AuthContext.jsx # Auth state management
+│   │   ├── hooks/              # Custom React hooks
+│   │   │   ├── useAuth.js      # Auth hook
+│   │   │   └── useApi.js       # API call hook
+│   │   ├── components/         # Reusable components
+│   │   ├── pages/              # Page components
+│   │   ├── App.jsx             # Root component
+│   │   └── index.jsx           # Entry point
+│   ├── public/
+│   │   └── index.html          # HTML template
+│   ├── vite.config.js          # Build configuration
+│   ├── package.json            # Dependencies
+│   └── .env.example            # Environment template
+│
 ├── docker-compose.yml          # Development environment
 ├── docker-compose.prod.yml     # Production environment
 ├── .env.docker                 # Environment template
@@ -126,7 +161,55 @@ ilead-ams/
 
 ## Getting Started
 
-### Development Environment
+### Frontend Development
+
+**Setup**:
+
+```bash
+cd ilead-ams/frontend
+
+# Install dependencies
+npm install
+
+# Configure environment
+cp .env.example .env.local
+# Edit .env.local - ensure VITE_API_URL=http://localhost:3000
+
+# Start dev server
+npm run dev
+
+# Open browser to http://localhost:3001
+```
+
+**Building for Production**:
+
+```bash
+# Create optimized build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+**API Integration**:
+
+The frontend uses a comprehensive API service layer:
+
+```javascript
+// Automatic JWT token management
+import { useAuth } from './hooks/useAuth';
+const { user, login, logout } = useAuth();
+
+// Use any API service
+import * as apprenticeApi from './api/apprentices';
+const apprentices = await apprenticeApi.listApprentices();
+
+// Automatic error handling and token refresh
+```
+
+See [frontend/README.md](./ilead-ams/frontend/README.md) for detailed documentation.
+
+### Backend Development
 
 **Using Docker** (Recommended):
 
@@ -534,6 +617,13 @@ make down && make dev
 - Bcryptjs - Password hashing
 - Joi - Validation
 
+**Frontend** (Phase 7):
+- React 18 - UI framework
+- Vite - Build tool & dev server
+- React Router - Client-side routing
+- Axios - HTTP client
+- React Context - State management
+
 **DevOps**:
 - Docker - Containerization
 - Docker Compose - Orchestration
@@ -544,6 +634,8 @@ make down && make dev
 - Jest - Test framework
 - Supertest - HTTP testing
 - Coverage.js - Code coverage
+- ESLint - Code linting
+- Prettier - Code formatting
 
 ## Project Statistics
 
@@ -569,14 +661,28 @@ make down && make dev
 - CI/CD pipeline
 - Comprehensive documentation
 
+### Phase 7: Frontend React Integration 🚀
+#### Phase 7A: Complete ✅
+- Modern React 18 project setup with Vite
+- Comprehensive Axios HTTP client
+- API service layer for all endpoints
+- Authentication context and hooks
+- ESLint, Prettier, build configuration
+
+#### Phase 7B-7F: In Progress
+- Component migration from legacy HTML
+- React Router integration
+- Enhanced state management
+- Testing and documentation
+
 ### Future Phases
-- Frontend React integration (in progress)
 - Advanced analytics and reporting
 - Mobile app support
 - API rate limiting per user
 - Advanced webhook routing
 - Kubernetes deployment
 - GraphQL endpoint (optional)
+- Real-time notifications (WebSocket)
 
 ## Support
 
