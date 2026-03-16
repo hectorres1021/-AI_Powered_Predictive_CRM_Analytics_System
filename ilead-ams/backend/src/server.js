@@ -19,6 +19,7 @@ const programRoutes = require('./routes/programs');
 const organizationRoutes = require('./routes/organizations');
 const analyticsRoutes = require('./routes/analytics');
 const webhookRoutes = require('./routes/webhooks');
+const documentRoutes = require('./routes/documents');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -82,6 +83,7 @@ app.use(`${apiVersion}/hour-logs`, hourLogRoutes);
 app.use(`${apiVersion}/programs`, programRoutes);
 app.use(`${apiVersion}/organizations`, organizationRoutes);
 app.use(`${apiVersion}/analytics`, analyticsRoutes);
+app.use(`${apiVersion}/documents`, documentRoutes);
 app.use(`${apiVersion}/webhooks`, webhookRoutes);
 
 // 404 Handler
