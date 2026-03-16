@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { useAuth } from './hooks/useAuth';
 import { Navbar } from './components/Layout/Navbar';
 import { Sidebar } from './components/Layout/Sidebar';
+import { DashboardStats } from './components/Dashboard/DashboardStats';
 import { AuthPage } from './pages/AuthPage';
 import './App.css';
 
@@ -36,19 +37,20 @@ function AppContent() {
             </div>
           </div>
 
+          <DashboardStats />
+
           <div className="info-box">
-            <h2>Phase 7B: Component Migration</h2>
+            <h2>Phase 7B: Component Migration Progress</h2>
             <ul>
-              <li>✅ API client configured with Axios</li>
-              <li>✅ Auth context and hooks set up</li>
-              <li>✅ All service modules created</li>
-              <li>✅ Authentication components (Login, Register, PIN)</li>
-              <li>✅ Navigation (Navbar, Sidebar)</li>
-              <li>⏳ Dashboard component</li>
-              <li>⏳ Apprentice management components</li>
-              <li>⏳ Hour log submission/approval</li>
-              <li>⏳ User administration</li>
-              <li>⏳ Analytics & reporting</li>
+              <li>✅ Phase 7A: Project setup & API integration</li>
+              <li>✅ Phase 7B (1/5): Authentication & Navigation</li>
+              <li>✅ Phase 7B (2/5): Dashboard Statistics</li>
+              <li>⏳ Phase 7B (3/5): Apprentice management</li>
+              <li>⏳ Phase 7B (4/5): Hour log operations</li>
+              <li>⏳ Phase 7B (5/5): User administration</li>
+              <li>⏳ Phase 7C: State management optimization</li>
+              <li>⏳ Phase 7D: Advanced features (analytics, reports)</li>
+              <li>⏳ Phase 7E: Testing & optimization</li>
             </ul>
           </div>
         </main>
