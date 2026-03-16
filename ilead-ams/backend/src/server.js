@@ -5,6 +5,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 
 // Import middleware
 const { errorHandler } = require('./middleware/errorHandler');
@@ -72,6 +74,36 @@ app.get('/health', (req, res) => {
     environment: process.env.NODE_ENV || 'development'
   });
 });
+
+// Swagger UI Documentation (Development)
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    const swaggerDocument = YAML.load('./openapi.yml');
+    app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
+      swaggerOptions: {
+        urls: [
+          {
+            url: '/openapi.json',
+            name: 'OpenAPI JSON'
+          }
+        ],
+        persistAuthorization: true
+      }
+    }));
+
+    // Serve OpenAPI spec as JSON
+    app.get('/openapi.json', (req, res) => {
+      res.json(swaggerDocument);
+    });
+
+    // Redirect /api-docs to /docs
+    app.get('/api-docs', (req, res) => {
+      res.redirect('/docs');
+    });
+  } catch (err) {
+    console.warn('Warning: Could not load Swagger documentation:', err.message);
+  }
+}
 
 // API Version Prefix
 const apiVersion = '/api';
