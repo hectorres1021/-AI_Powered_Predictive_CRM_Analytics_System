@@ -25,7 +25,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Trust proxy (important for production behind nginx/load balancer)
-app.trust proxy = 1;
+app.set('trust proxy', 1);
 
 // Security Middleware
 app.use(helmet());
@@ -40,13 +40,14 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Rate Limiting
-const limiter = rateLimit({
+// Rate Limiting (disabled in test mode)
+const isTestMode = process.env.NODE_ENV === 'test';
+const limiter = isTestMode ? (req, res, next) => next() : rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000, // 15 minutes
   max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100,
   message: 'Too many requests from this IP, please try again later.'
 });
-const authLimiter = rateLimit({
+const authLimiter = isTestMode ? (req, res, next) => next() : rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 5, // 5 requests per window
   skipSuccessfulRequests: true,
@@ -98,9 +99,11 @@ app.use((req, res) => {
 // Global Error Handler
 app.use(errorHandler);
 
-// Start Server
-const server = app.listen(PORT, () => {
-  console.log(`
+// Start Server (only if not in test mode)
+let server;
+if (process.env.NODE_ENV !== 'test') {
+  server = app.listen(PORT, () => {
+    console.log(`
 ╔════════════════════════════════════════════════╗
 ║  I-LEAD AMS Backend Server                    ║
 ║  Version: 1.0.0                               ║
@@ -108,24 +111,25 @@ const server = app.listen(PORT, () => {
 ║  Port: ${PORT.toString().padEnd(39)} ║
 ║  Started: ${new Date().toISOString().padEnd(38)} ║
 ╚════════════════════════════════════════════════╝
-  `);
-});
-
-// Graceful Shutdown
-process.on('SIGTERM', () => {
-  console.log('SIGTERM signal received: closing HTTP server');
-  server.close(() => {
-    console.log('HTTP server closed');
-    process.exit(0);
+    `);
   });
-});
 
-process.on('SIGINT', () => {
-  console.log('SIGINT signal received: closing HTTP server');
-  server.close(() => {
-    console.log('HTTP server closed');
-    process.exit(0);
+  // Graceful Shutdown
+  process.on('SIGTERM', () => {
+    console.log('SIGTERM signal received: closing HTTP server');
+    server.close(() => {
+      console.log('HTTP server closed');
+      process.exit(0);
+    });
   });
-});
+
+  process.on('SIGINT', () => {
+    console.log('SIGINT signal received: closing HTTP server');
+    server.close(() => {
+      console.log('HTTP server closed');
+      process.exit(0);
+    });
+  });
+}
 
 module.exports = app;

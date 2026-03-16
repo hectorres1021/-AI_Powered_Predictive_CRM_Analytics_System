@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-key-change-in-production';
+
 const authenticate = (req, res, next) => {
   const authHeader = req.get('Authorization');
 
@@ -14,7 +16,7 @@ const authenticate = (req, res, next) => {
   const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
     next();
   } catch (err) {
@@ -41,7 +43,7 @@ const optionalAuth = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, JWT_SECRET);
       req.user = decoded;
     } catch (err) {
       // Silently ignore auth errors for optional auth

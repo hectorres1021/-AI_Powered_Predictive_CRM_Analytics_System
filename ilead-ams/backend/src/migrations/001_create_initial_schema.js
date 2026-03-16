@@ -1,7 +1,7 @@
 exports.up = async function(knex) {
   // Create Organizations table
   await knex.schema.createTable('organizations', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
+    table.string('id', 36).primary();
     table.string('name', 255).notNullable();
     table.string('code', 50).notNullable().unique();
     table.text('address');
@@ -12,16 +12,16 @@ exports.up = async function(knex) {
 
   // Create Users table
   await knex.schema.createTable('users', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
+    table.string('id', 36).primary();
     table.string('email', 255).notNullable().unique();
     table.string('password_hash', 255).notNullable();
     table.string('first_name', 100);
     table.string('last_name', 100);
     table.string('phone', 20);
     table.enum('role', ['apprentice', 'supervisor', 'journeyworker', 'administrator', 'super_admin']).notNullable();
-    table.uuid('organization_id').notNullable().references('id').inTable('organizations').onDelete('cascade');
+    table.string('organization_id', 36).notNullable().references('id').inTable('organizations').onDelete('cascade');
     table.enum('status', ['active', 'pending_approval', 'inactive']).notNullable().defaultTo('pending_approval');
-    table.uuid('created_by').references('id').inTable('users').onDelete('set null');
+    table.string('created_by', 36).references('id').inTable('users').onDelete('set null');
     table.timestamps(true, true);
     table.index('email');
     table.index('organization_id');
@@ -30,26 +30,26 @@ exports.up = async function(knex) {
 
   // Create Programs table
   await knex.schema.createTable('programs', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
+    table.string('id', 36).primary();
     table.string('name', 255).notNullable();
     table.string('code', 50).notNullable().unique();
     table.enum('type', ['registeredApprenticeship', 'preApprenticeship', 'workBasedLearning', 'industryCertification']).defaultTo('registeredApprenticeship');
     table.decimal('target_ojt_hours', 10, 2).notNullable();
     table.decimal('target_rti_hours', 10, 2).notNullable();
     table.string('partner', 255);
-    table.uuid('organization_id').notNullable().references('id').inTable('organizations').onDelete('cascade');
+    table.string('organization_id', 36).notNullable().references('id').inTable('organizations').onDelete('cascade');
     table.boolean('is_default').defaultTo(false);
-    table.uuid('created_by').references('id').inTable('users').onDelete('set null');
+    table.string('created_by', 36).references('id').inTable('users').onDelete('set null');
     table.timestamps(true, true);
     table.index(['organization_id', 'code']);
   });
 
   // Create Apprentices table
   await knex.schema.createTable('apprentices', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
-    table.uuid('user_id').notNullable().references('id').inTable('users').onDelete('cascade');
-    table.uuid('program_id').notNullable().references('id').inTable('programs').onDelete('restrict');
-    table.uuid('organization_id').notNullable().references('id').inTable('organizations').onDelete('cascade');
+    table.string('id', 36).primary();
+    table.string('user_id', 36).notNullable().references('id').inTable('users').onDelete('cascade');
+    table.string('program_id', 36).notNullable().references('id').inTable('programs').onDelete('restrict');
+    table.string('organization_id', 36).notNullable().references('id').inTable('organizations').onDelete('cascade');
     table.enum('status', ['active', 'inactive', 'completed', 'archived']).notNullable().defaultTo('active');
     table.string('employer', 255);
     table.string('supervisor', 255);
@@ -64,8 +64,8 @@ exports.up = async function(knex) {
     table.decimal('supervision_minutes', 10, 2).defaultTo(0);
     table.decimal('wage_start', 10, 2);
     table.decimal('wage_current', 10, 2);
-    table.text('wage_progression'); // JSON field for wage history
-    table.uuid('created_by').references('id').inTable('users').onDelete('set null');
+    table.text('wage_progression');
+    table.string('created_by', 36).references('id').inTable('users').onDelete('set null');
     table.timestamps(true, true);
     table.index(['organization_id', 'status']);
     table.index('supervisor_email');
@@ -74,9 +74,9 @@ exports.up = async function(knex) {
 
   // Create Hour Logs table
   await knex.schema.createTable('hour_logs', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
-    table.uuid('apprentice_id').notNullable().references('id').inTable('apprentices').onDelete('cascade');
-    table.uuid('submitted_by').notNullable().references('id').inTable('users').onDelete('restrict');
+    table.string('id', 36).primary();
+    table.string('apprentice_id', 36).notNullable().references('id').inTable('apprentices').onDelete('cascade');
+    table.string('submitted_by', 36).notNullable().references('id').inTable('users').onDelete('restrict');
     table.enum('ojt_domain', ['dataCollection', 'assessment', 'skillAcquisition', 'behaviorReduction', 'documentation', 'crisisManagement']);
     table.string('rti_module', 100);
     table.decimal('ojt_hours', 5, 2).defaultTo(0);
@@ -85,17 +85,17 @@ exports.up = async function(knex) {
     table.date('log_date').notNullable();
     table.text('description');
     table.enum('status', ['pending', 'approved', 'rejected']).notNullable().defaultTo('pending');
-    table.uuid('approved_by').references('id').inTable('users').onDelete('set null');
+    table.string('approved_by', 36).references('id').inTable('users').onDelete('set null');
     table.timestamp('approved_at');
-    table.integer('rubric_score'); // 1-5 scale
-    table.string('rubric_domain', 10); // A-F
+    table.integer('rubric_score');
+    table.string('rubric_domain', 10);
     table.text('rubric_notes');
     table.enum('evidence_type', ['direct', 'observation', 'documentation']);
     table.text('next_steps');
     table.integer('supervision_minutes').defaultTo(0);
     table.enum('supervision_type', ['direct', 'indirect']);
     table.boolean('remediation_required').defaultTo(false);
-    table.string('task_domain', 10); // Specific RBT task
+    table.string('task_domain', 10);
     table.text('specific_task');
     table.text('accuracy_data');
     table.text('context_vars');
@@ -105,16 +105,16 @@ exports.up = async function(knex) {
     table.index(['ojt_domain', 'status']);
   });
 
-  // Create Ratings table (approved rubric assessments)
+  // Create Ratings table
   await knex.schema.createTable('ratings', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
-    table.uuid('hour_log_id').notNullable().references('id').inTable('hour_logs').onDelete('cascade');
-    table.uuid('apprentice_id').notNullable().references('id').inTable('apprentices').onDelete('cascade');
+    table.string('id', 36).primary();
+    table.string('hour_log_id', 36).notNullable().references('id').inTable('hour_logs').onDelete('cascade');
+    table.string('apprentice_id', 36).notNullable().references('id').inTable('apprentices').onDelete('cascade');
     table.string('apprentice_name', 255);
     table.date('assessment_date');
     table.string('task_domain', 10);
     table.text('specific_task');
-    table.integer('score'); // 1-5
+    table.integer('score');
     table.string('label', 50);
     table.enum('supervision_type', ['direct', 'indirect']);
     table.integer('supervision_minutes').defaultTo(0);
@@ -122,29 +122,29 @@ exports.up = async function(knex) {
     table.text('evidence');
     table.text('next_steps');
     table.text('context');
-    table.uuid('assessed_by').notNullable().references('id').inTable('users').onDelete('restrict');
+    table.string('assessed_by', 36).notNullable().references('id').inTable('users').onDelete('restrict');
     table.timestamps(true, true);
     table.index(['apprentice_id', 'task_domain']);
   });
 
   // Create Documents table
   await knex.schema.createTable('documents', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
+    table.string('id', 36).primary();
     table.string('filename', 255).notNullable();
     table.bigInteger('file_size');
     table.string('mime_type', 100);
     table.string('storage_url', 500);
-    table.uuid('uploaded_by').notNullable().references('id').inTable('users').onDelete('restrict');
-    table.uuid('organization_id').references('id').inTable('organizations').onDelete('set null');
-    table.uuid('apprentice_id').references('id').inTable('apprentices').onDelete('set null');
+    table.string('uploaded_by', 36).notNullable().references('id').inTable('users').onDelete('restrict');
+    table.string('organization_id', 36).references('id').inTable('organizations').onDelete('set null');
+    table.string('apprentice_id', 36).references('id').inTable('apprentices').onDelete('set null');
     table.timestamps(true, true);
     table.index(['organization_id', 'created_at']);
   });
 
   // Create Password Reset Tokens table
   await knex.schema.createTable('password_reset_tokens', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
-    table.uuid('user_id').notNullable().references('id').inTable('users').onDelete('cascade');
+    table.string('id', 36).primary();
+    table.string('user_id', 36).notNullable().references('id').inTable('users').onDelete('cascade');
     table.string('token', 500).notNullable().unique();
     table.timestamp('expires_at').notNullable();
     table.boolean('used').defaultTo(false);
@@ -155,11 +155,11 @@ exports.up = async function(knex) {
 
   // Create Audit Log table
   await knex.schema.createTable('audit_logs', table => {
-    table.uuid('id').primary().defaultTo(knex.raw('gen_random_uuid()'));
-    table.uuid('user_id').references('id').inTable('users').onDelete('set null');
+    table.string('id', 36).primary();
+    table.string('user_id', 36).references('id').inTable('users').onDelete('set null');
     table.string('action', 100).notNullable();
     table.string('resource_type', 100);
-    table.uuid('resource_id');
+    table.string('resource_id', 36);
     table.text('details');
     table.string('ip_address', 45);
     table.timestamps(true, true);
