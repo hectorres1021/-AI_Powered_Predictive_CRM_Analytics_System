@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serenity Spa — Restore. Renew. Radiate.</title>
+  <meta name="description" content="Serenity Spa offers premium wellness treatments designed to restore balance and radiate inner calm. Book your transformative experience today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Primary navigation">
+      <a href="#" class="nav-logo" aria-label="Serenity Spa — Home">
+        <!-- Leaf SVG Logo Mark -->
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+          <path d="M16 2C16 2 6 8 6 18C6 23.5 10.5 28 16 28C21.5 28 26 23.5 26 18C26 8 16 2 16 2Z" fill="#E8B4B8" opacity="0.6"/>
+          <path d="M16 28V14M16 14C16 14 12 17 10 21M16 14C16 14 20 17 22 21" stroke="#A8D5BA" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Serenity</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="nav-menu" role="list">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#testimonials" class="nav-link">Stories</a></li>
+        <li><a href="#booking" class="nav-link">Book</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#booking" class="btn btn-nav">Reserve Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Premium Wellness Sanctuary</p>
+        <h1 class="hero-heading" id="hero-heading">
+          Restore.<br />
+          <em>Renew.</em><br />
+          Radiate.
+        </h1>
+        <p class="hero-subtext">
+          Step into a world of intentional calm. Our expert therapists craft each treatment to reconnect you with your deepest sense of well-being.
+        </p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary">Book Your Escape</a>
+          <a href="#services" class="btn btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Explore Services
+          </a>
+        </div>
+        <div class="hero-trust" aria-label="Trust indicators">
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true" focusable="false"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>4.9 Rating</span>
+          </div>
+          <span class="trust-divider" aria-hidden="true"></span>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>2,400+ Guests</span>
+          </div>
+          <span class="trust-divider" aria-hidden="true"></span>
+          <div class="trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Certified Therapists</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-main">
+          <div class="hero-card-inner">
+            <div class="hero-card-img"></div>
+            <div class="hero-card-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Signature Treatment
+            </div>
+          </div>
+        </div>
+        <div class="hero-card hero-card-float hero-card-float-1">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="1.8" aria-hidden="true"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 5.477 10 10-4.477 10-10 10zM12 6v6l4 2"/></svg>
+          <div>
+            <p class="float-label">Next Available</p>
+            <p class="float-value">Today, 3:00 PM</p>
+          </div>
+        </div>
+        <div class="hero-card hero-card-float hero-card-float-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <div>
+            <p class="float-label">Guest Wellness</p>
+            <p class="float-value">98% Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="services section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Our Treatments</p>
+          <h2 class="section-title" id="services-heading">Crafted for Your Well-being</h2>
+          <p class="section-subtitle">Every treatment is a journey — thoughtfully curated with organic ingredients and ancient healing wisdom.</p>
+        </div>
+
+        <div class="services-grid" role="list">
+
+          <article class="service-card" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Signature Massage</h3>
+              <p class="service-desc">A full-body Swedish fusion using warm botanicals and rhythmic strokes to dissolve tension and restore circulation.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  60 / 90 min
+                </span>
+                <span class="service-price">From $120</span>
+              </div>
+              <a href="#booking" class="service-link">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card service-card--featured" role="listitem">
+            <div class="service-featured-badge">Most Loved</div>
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9.5 2 7 4 7 7c0 2 1 4 2 5l-3 3c-1 1-1 2.5 0 3.5S8 20 9 19l1-1c.5.5 1.3 1 2 1s1.5-.5 2-1l1 1c1 1 2.5 1 3.5 0s1-2.5 0-3.5l-3-3c1-1 2-3 2-5 0-3-2.5-5-5-5z"/><line x1="12" y1="12" x2="12" y2="17"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Gold Ritual Facial</h3>
+              <p class="service-desc">Our prestige facial harnesses 24-karat gold leaf and hyaluronic peptides to firm, illuminate, and deeply hydrate.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  75 min
+                </span>
+                <span class="service-price">From $185</span>
+              </div>
+              <a href="#booking" class="service-link service-link--gold">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 2-1 4-2 5.5-2 2.5-4 3.5-8 4.5-4-1-6-2-8-4.5C3 16 2 14 2 12A10 10 0 0 1 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Botanical Body Wrap</h3>
+              <p class="service-desc">Detoxify and remineralise with our signature blend of seaweed, clay, and aromatic herbs, cocooned in warmth.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  90 min
+                </span>
+                <span class="service-price">From $155</span>
+              </div>
+              <a href="#booking" class="service-link">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Aromatherapy Ritual</h3>
+              <p class="service-desc">A sensory journey blending pure essential oils, hot stones, and mindful breathwork for total nervous system renewal.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  60 min
+                </span>
+                <span class="service-price">From $110</span>
+              </div>
+              <a href="#booking" class="service-link">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Couples Sanctuary</h3>
+              <p class="service-desc">Share a moment of pure stillness — side-by-side treatments in our private suite, followed by champagne and fruit.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  120 min
+                </span>
+                <span class="service-price">From $290</span>
+              </div>
+              <a href="#booking" class="service-link">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card" role="listitem">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Day Retreat Package</h3>
+              <p class="service-desc">A curated full-day experience: arrival ritual, three treatments, spa lunch, and unlimited access to thermal pools.</p>
+              <div class="service-meta">
+                <span class="service-duration">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  Full day
+                </span>
+                <span class="service-price">From $395</span>
+              </div>
+              <a href="#booking" class="service-link">
+                Book Treatment
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="testimonials section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Guest Stories</p>
+          <h2 class="section-title" id="testimonials-heading">Voices of Transformation</h2>
+          <p class="section-subtitle">Real experiences from guests who found their stillness within our walls.</p>
+        </div>
+
+        <div class="testimonials-grid" role="list">
+
+          <blockquote class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">"The Gold Ritual Facial changed the way I see self-care. My skin glowed for two weeks — and more importantly, I felt genuinely restored for the first time in years."</p>
+            <footer class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">SR</div>
+              <div class="author-info">
+                <cite class="author-name">Sophia R.</cite>
+                <span class="author-detail">Regular Guest · London</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card testimonial-card--large" role="listitem">
+            <div class="testimonial-quote-mark" aria-hidden="true">
+              <svg width="40" height="32" viewBox="0 0 40 32" fill="none" aria-hidden="true"><path d="M0 32V19.2C0 8.53 6.4 2.13 19.2 0l2.4 4C14.93 5.33 11.47 8.8 10.4 14.4H16V32H0zm24 0V19.2C24 8.53 30.4 2.13 43.2 0l2.4 4C38.93 5.33 35.47 8.8 34.4 14.4H40V32H24z" fill="#E8B4B8" opacity="0.3"/></svg>
+            </div>
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">"My husband and I booked the Couples Sanctuary for our anniversary and it was, without question, the most peaceful afternoon of our marriage. The attention to detail — from the scented towels to the champagne — was impeccable. We have already booked again."</p>
+            <footer class="testimonial-author">
+              <div class="author-avatar author-avatar--sage" aria-hidden="true">ML</div>
+              <div class="author-info">
+                <cite class="author-name">Maya &amp; Leo K.</cite>
+                <span class="author-detail">First-time Guests · New York</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" role="listitem">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">"The Day Retreat is worth every penny. I came in exhausted and left feeling ten years younger. The therapists are incredibly skilled and the whole atmosphere is just... perfect."</p>
+            <footer class="testimonial-author">
+              <div class="author-avatar author-avatar--gold" aria-hidden="true">JT</div>
+              <div class="author-info">
+                <cite class="author-name">James T.</cite>
+                <span class="author-detail">Monthly Member · Toronto</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+
+        <!-- CTA after testimonials -->
+        <div class="testimonials-cta">
+          <p class="testimonials-cta-text">Join thousands of guests who have found their sanctuary.</p>
+          <a href="#booking" class="btn btn-primary">Reserve Your Treatment</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== BOOKING ========== -->
+    <section class="booking section" id="booking" aria-labelledby="booking-heading">
+      <div class="container">
+        <div class="booking-layout">
+
+          <div class="booking-info">
+            <p class="section-eyebrow">Reserve Your Visit</p>
+            <h2 class="section-title" id="booking-heading">Begin Your Journey</h2>
+            <p class="booking-desc">Select your treatment, choose your preferred time, and let us prepare a deeply personalised experience just for you.</p>
+
+            <ul class="booking-features" role="list">
+              <li class="booking-feature">
+                <div class="feature-icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Complimentary arrival tea &amp; welcome ritual</span>
+              </li>
+              <li class="booking-feature">
+                <div class="feature-icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Personalised treatment consultation</span>
+              </li>
+              <li class="booking-feature">
+                <div class="feature-icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Access to thermal suite &amp; relaxation lounge</span>
+              </li>
+              <li class="booking-feature">
+                <div class="feature-icon-wrap" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span>Free cancellation up to 24 hours in advance</span>
+              </li>
+            </ul>
+
+            <div class="booking-award">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+              <span>Best Day Spa — Wellness Awards 2024 &amp; 2025</span>
+            </div>
+          </div>
+
+          <div class="booking-form-wrap">
+            <form class="booking-form" id="booking-form" novalidate aria-label="Treatment booking form">
+              <div class="form-group">
+                <label class="form-label" for="guest-name">Full Name</label>
+                <input
+                  type="text"
+                  id="guest-name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="guest-email">Email Address</label>
+                  <input
+                    type="email"
+                    id="guest-email"
+                    name="email"
+                    class="form-input"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="guest-phone">Phone (optional)</label>
+                  <input
+                    type="tel"
+                    id="guest-phone"
+                    name="phone"
+                    class="form-input"
+                    placeholder="+1 (555) 000-0000"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="treatment">Treatment</label>
+                <div class="form-select-wrap">
+                  <select id="treatment" name="treatment" class="form-select" required aria-required="true">
+                    <option value="" disabled selected>Select a treatment</option>
+                    <option value="signature-massage">Signature Massage — From $120</option>
+                    <option value="gold-facial">Gold Ritual Facial — From $185</option>
+                    <option value="body-wrap">Botanical Body Wrap — From $155</option>
+                    <option value="aromatherapy">Aromatherapy Ritual — From $110</option>
+                    <option value="couples">Couples Sanctuary — From $290</option>
+                    <option value="day-retreat">Day Retreat Package — From $395</option>
+                  </select>
+                  <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="preferred-date">Preferred Date</label>
+                  <input
+                    type="date"
+                    id="preferred-date"
+                    name="date"
+                    class="form-input"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="preferred-time">Preferred Time</label>
+                  <div class="form-select-wrap">
+                    <select id="preferred-time" name="time" class="form-select" required aria-required="true">
+                      <option value="" disabled selected>Choose time</option>
+                      <option value="09:00">9:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="15:00">3:00 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="17:00">5:00 PM</option>
+                    </select>
+                    <svg class="select-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="notes">Special Requests (optional)</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  class="form-textarea"
+                  placeholder="Allergies, preferences, celebrations..."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Confirm My Booking
+              </button>
+
+              <p class="form-note">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Your information is private and secure. We respond within 2 hours.
+              </p>
+            </form>
+
+            <!-- Success state (hidden by default) -->
+            <div class="form-success" id="form-success" hidden aria-live="polite">
+              <div class="success-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 class="success-title">Booking Received</h3>
+              <p class="success-text">Thank you! We will confirm your appointment within 2 hours. Please check your inbox for details.</p>
+              <a href="#services" class="btn btn-ghost">Explore More Treatments</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="contact section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Find Us</p>
+          <h2 class="section-title" id="contact-heading">We Would Love to Welcome You</h2>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="contact-card-title">Address</h3>
+            <address class="contact-text">
+              14 Blossom Lane, Suite 3<br />
+              Mayfair, London W1K 2AF<br />
+              United Kingdom
+            </address>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A8D5BA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="contact-card-title">Opening Hours</h3>
+            <dl class="contact-hours">
+              <div class="hours-row">
+                <dt>Mon – Fri</dt>
+                <dd>9:00 AM – 8:00 PM</dd>
+              </div>
+              <div class="hours-row">
+                <dt>Saturday</dt>
+                <dd>9:00 AM – 9:00 PM</dd>
+              </div>
+              <div class="hours-row">
+                <dt>Sunday</dt>
+                <dd>10:00 AM – 6:00 PM</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.92-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+            </div>
+            <h3 class="contact-card-title">Get in Touch</h3>
+            <div class="contact-links">
+              <a href="tel:+442071234567" class="contact-link">
+                +44 (0) 207 123 4567
+              </a>
+              <a href="mailto:hello@serenityspa.com" class="contact-link">
+                hello@serenityspa.com
+              </a>
+            </div>
+            <div class="contact-social" aria-label="Social media">
+              <a href="#" class="social-link" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-link" aria-label="Pinterest">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.09-2.37 3.09-5.17 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.24-.06.26-.2.84-.23.95-.04.16-.13.19-.3.11-1.11-.52-1.8-2.13-1.8-3.43 0-2.79 2.03-5.36 5.85-5.36 3.07 0 5.46 2.19 5.46 5.11 0 3.05-1.92 5.5-4.57 5.5-.89 0-1.73-.46-2.02-1.01l-.55 2.05c-.2.77-.74 1.73-1.1 2.32.83.26 1.71.4 2.62.4 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo" aria-label="Serenity Spa — Home">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+              <path d="M16 2C16 2 6 8 6 18C6 23.5 10.5 28 16 28C21.5 28 26 23.5 26 18C26 8 16 2 16 2Z" fill="#E8B4B8" opacity="0.6"/>
+              <path d="M16 28V14M16 14C16 14 12 17 10 21M16 14C16 14 20 17 22 21" stroke="#A8D5BA" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="nav-logo-text">Serenity</span>
+          </a>
+          <p class="footer-tagline">A sanctuary for the senses, a home for the soul.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-nav-col">
+            <h4 class="footer-nav-title">Treatments</h4>
+            <ul role="list">
+              <li><a href="#services" class="footer-link">Signature Massage</a></li>
+              <li><a href="#services" class="footer-link">Gold Ritual Facial</a></li>
+              <li><a href="#services" class="footer-link">Botanical Body Wrap</a></li>
+              <li><a href="#services" class="footer-link">Couples Sanctuary</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4 class="footer-nav-title">Visit</h4>
+            <ul role="list">
+              <li><a href="#booking" class="footer-link">Book a Treatment</a></li>
+              <li><a href="#testimonials" class="footer-link">Guest Stories</a></li>
+              <li><a href="#contact" class="footer-link">Find Us</a></li>
+              <li><a href="#" class="footer-link">Gift Vouchers</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4 class="footer-nav-title">Company</h4>
+            <ul role="list">
+              <li><a href="#" class="footer-link">About Serenity</a></li>
+              <li><a href="#" class="footer-link">Our Therapists</a></li>
+              <li><a href="#" class="footer-link">Sustainability</a></li>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 Serenity Spa. All rights reserved.</p>
+        <p class="footer-legal">Wellness Awards Best Day Spa 2024 &amp; 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
