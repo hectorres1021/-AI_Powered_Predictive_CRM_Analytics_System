@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const webhookController = require('../controllers/webhookController');
 
-router.post('/make', (req, res) => {
-  res.json({ message: 'Make.com webhook endpoint' });
-});
+// Make.com webhook - no authentication required (Make.com sends POST directly)
+router.post('/make', webhookController.handleMakeWebhook);
 
-router.get('/status', (req, res) => {
-  res.json({ message: 'Webhook status endpoint' });
-});
+// Health check
+router.get('/status', webhookController.getStatus);
 
 module.exports = router;
