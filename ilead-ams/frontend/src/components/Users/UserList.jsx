@@ -3,7 +3,7 @@ import { useApi } from '../../hooks/useApi';
 import * as userApi from '../../api/users';
 import '../styles/Tables.css';
 
-export const UserList = ({ onSelectUser, onRefresh }) => {
+export const UserList = ({ onSelectUser, onRefresh, onDataChange }) => {
   const { data, loading, error, execute } = useApi(userApi.listUsers);
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState('all');
@@ -17,8 +17,9 @@ export const UserList = ({ onSelectUser, onRefresh }) => {
   useEffect(() => {
     if (data?.data) {
       setUsers(data.data);
+      onDataChange?.(data.data);
     }
-  }, [data]);
+  }, [data, onDataChange]);
 
   const getRoleColor = (role) => {
     const colors = {

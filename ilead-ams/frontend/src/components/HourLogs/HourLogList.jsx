@@ -4,24 +4,52 @@ import { useApi } from '../../hooks/useApi';
 import * as hourLogApi from '../../api/hourLogs';
 import '../styles/Tables.css';
 
-export const HourLogList = ({ onSelectLog, apprenticeId }) => {
+export const HourLogList = ({ onSelectLog, apprenticeId, advancedFilters, onLogsChange }) => {
   const { user } = useAuth();
   const { data, loading, error, execute } = useApi(hourLogApi.listHourLogs);
   const [logs, setLogs] = useState([]);
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    execute({
+    const filterParams = {
       status: filter !== 'all' ? filter : undefined,
       apprenticeId: apprenticeId
-    });
-  }, [filter, apprenticeId, execute]);
+    };
+
+    // Merge advanced filters if provided
+    if (advancedFilters) {
+      if (advancedFilters.status && advancedFilters.status !== 'all') {
+        filterParams.status = advancedFilters.status;
+      }
+      if (advancedFilters.dateFrom) {
+        filterParams.dateFrom = advancedFilters.dateFrom;
+      }
+      if (advancedFilters.dateTo) {
+        filterParams.dateTo = advancedFilters.dateTo;
+      }
+      if (advancedFilters.domain && advancedFilters.domain !== 'all') {
+        filterParams.domain = advancedFilters.domain;
+      }
+      if (advancedFilters.minHours) {
+        filterParams.minHours = advancedFilters.minHours;
+      }
+      if (advancedFilters.maxHours) {
+        filterParams.maxHours = advancedFilters.maxHours;
+      }
+      if (advancedFilters.sortBy) {
+        filterParams.sortBy = advancedFilters.sortBy;
+      }
+    }
+
+    execute(filterParams);
+  }, [filter, apprenticeId, advancedFilters, execute]);
 
   useEffect(() => {
     if (data?.data) {
       setLogs(data.data);
+      onLogsChange?.(data.data);
     }
-  }, [data]);
+  }, [data, onLogsChange]);
 
   const getStatusBadgeClass = (status) => {
     const statusMap = {

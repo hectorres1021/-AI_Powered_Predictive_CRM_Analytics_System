@@ -15,6 +15,12 @@ export const listHourLogs = async (filters = {}) => {
   const params = new URLSearchParams();
   if (filters.status) params.append('status', filters.status);
   if (filters.apprenticeId) params.append('apprenticeId', filters.apprenticeId);
+  if (filters.dateFrom) params.append('dateFrom', filters.dateFrom);
+  if (filters.dateTo) params.append('dateTo', filters.dateTo);
+  if (filters.domain) params.append('domain', filters.domain);
+  if (filters.minHours) params.append('minHours', filters.minHours);
+  if (filters.maxHours) params.append('maxHours', filters.maxHours);
+  if (filters.sortBy) params.append('sortBy', filters.sortBy);
   if (filters.limit) params.append('limit', filters.limit);
   if (filters.offset) params.append('offset', filters.offset);
 

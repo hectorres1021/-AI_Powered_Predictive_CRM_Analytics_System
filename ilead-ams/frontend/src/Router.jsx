@@ -9,6 +9,7 @@ import { HourLogsPage } from './pages/HourLogsPage';
 import { SubmitHoursPage } from './pages/SubmitHoursPage';
 import { ApprovalsPage } from './pages/ApprovalsPage';
 import { UsersPage } from './pages/UsersPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
 
 export const Router = () => {
   const { isAuthenticated, loading } = useAuth();
@@ -34,6 +35,7 @@ export const Router = () => {
           <>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="/apprentices" element={<ApprenticesPage />} />
             <Route path="/apprentices/:id" element={<ApprenticeDetailPage />} />
             <Route path="/hours" element={<HourLogsPage />} />

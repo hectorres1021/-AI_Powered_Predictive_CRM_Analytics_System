@@ -3,7 +3,7 @@ import { useApi } from '../../hooks/useApi';
 import * as apprenticeApi from '../../api/apprentices';
 import '../styles/Tables.css';
 
-export const ApprenticeList = ({ onSelectApprentice }) => {
+export const ApprenticeList = ({ onSelectApprentice, onDataChange }) => {
   const { data, loading, error, execute } = useApi(apprenticeApi.listApprentices);
   const [apprentices, setApprentices] = useState([]);
   const [filter, setFilter] = useState('all');
@@ -15,8 +15,9 @@ export const ApprenticeList = ({ onSelectApprentice }) => {
   useEffect(() => {
     if (data?.data) {
       setApprentices(data.data);
+      onDataChange?.(data.data);
     }
-  }, [data]);
+  }, [data, onDataChange]);
 
   if (loading) {
     return <div className="alert alert-info">Loading apprentices...</div>;
