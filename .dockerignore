@@ -2,11 +2,12 @@ node_modules
 npm-debug.log
 .git
 .gitignore
+README.md
 .env
 .env.local
 .DS_Store
+dist
+build
 coverage
-test
-__tests__
-.eslintrc
-.prettierrc
+.next
+.cache

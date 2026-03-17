@@ -1,4 +1,4 @@
-# Multi-stage build for optimized image
+# Multi-stage build for Node.js backend
 FROM node:18-alpine AS builder
 
 WORKDIR /app
@@ -14,28 +14,34 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Create app user for security
-RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
 
-# Copy node_modules from builder
-COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
+# Copy node modules from builder
+COPY --from=builder /app/node_modules ./node_modules
 
 # Copy application code
-COPY --chown=nodejs:nodejs . .
+COPY . .
 
-# Set environment variables
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001
+
+# Set environment
 ENV NODE_ENV=production
-ENV PORT=3000
-
-# Expose port
-EXPOSE 3000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:' + (process.env.PORT || 3001), (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
 
-# Switch to nodejs user
+# Switch to non-root user
 USER nodejs
+
+# Expose port
+EXPOSE 3001
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
 
 # Start application
 CMD ["node", "src/server.js"]
