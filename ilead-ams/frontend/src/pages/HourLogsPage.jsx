@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '../components/Layout/Navbar';
 import { Sidebar } from '../components/Layout/Sidebar';
+import { HourLogList } from '../components/HourLogs/HourLogList';
 
 export const HourLogsPage = () => {
   return (
@@ -10,11 +11,14 @@ export const HourLogsPage = () => {
         <Sidebar activeRoute="/hours" />
         <main className="main-content">
           <div className="page-header">
-            <h1 className="page-title">Hour Logs</h1>
-            <p className="page-subtitle">View your submitted hours</p>
+            <div className="page-header-left">
+              <h1 className="page-title">Hour Logs</h1>
+              <p className="page-subtitle">View your submitted hours</p>
+            </div>
           </div>
           <div className="card">
-            <p>Hour logs component coming soon...</p>
+            <div className="card-title">Your Hour Logs</div>
+            <HourLogList />
           </div>
         </main>
       </div>
